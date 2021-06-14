@@ -30,16 +30,16 @@ app.get("/",(req,res)=>{
   });
 
 app.get("/url/emotion", (req,res) => {
-    const payload = {
+    const Work = {
         'url': req.query.url,
         'features': {
             'emotion': {
-                'limit':7
+                'limit':2
             }
         }
     }
     
-    getNLUInstance().analyze(payload)
+    getNLUInstance().analyze(Work)
         .then(results => {
             return res.send(results.result.emotion.document.emotion);
         })
@@ -50,16 +50,16 @@ app.get("/url/emotion", (req,res) => {
 });
 
 app.get("/url/sentiment", (req,res) => {
-    const payload = {
+    const work = {
         'url': req.query.url,
         'features': {
             'sentiment': {
-                'limit':7
+                'limit':2
             }
         }
     }
     
-    getNLUInstance().analyze(payload)
+    getNLUInstance().analyze(work)
         .then(results => {
             return res.send(results.result.sentiment.document.label);
         })
@@ -69,16 +69,16 @@ app.get("/url/sentiment", (req,res) => {
 });
 
 app.get("/text/emotion", (req,res) => {
-    const payload = {
+    const work = {
         'text': req.query.text,
         'features': {
             'emotion': {
-                'limit':7
+                'limit':3
             }
         }
     }
     
-    getNLUInstance().analyze(payload)
+    getNLUInstance().analyze(work)
         .then(results => {
             return res.send(results.result.emotion.document.emotion);
         })
@@ -88,16 +88,16 @@ app.get("/text/emotion", (req,res) => {
 });
 
 app.get("/text/sentiment", (req,res) => {
-    const payload = {
+    const work = {
         'text': req.query.text,
         'features': {
             'sentiment': {
-                'limit':7
+                'limit':3
             }
         }
     }
     
-    getNLUInstance().analyze(payload)
+    getNLUInstance().analyze(work)
         .then(results => {
             return res.send(results.result.sentiment.document.label);
         })
