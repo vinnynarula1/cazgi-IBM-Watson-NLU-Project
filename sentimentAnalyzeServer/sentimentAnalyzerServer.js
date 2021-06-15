@@ -30,7 +30,7 @@ app.get("/",(req,res)=>{
   });
 
 app.get("/url/emotion", (req,res) => {
-    const Work = {
+    const work = {
         'url': req.query.url,
         'features': {
             'emotion': {
@@ -39,7 +39,7 @@ app.get("/url/emotion", (req,res) => {
         }
     }
     
-    getNLUInstance().analyze(Work)
+    getNLUInstance().analyze(work)
         .then(results => {
             return res.send(results.result.emotion.document.emotion);
         })
